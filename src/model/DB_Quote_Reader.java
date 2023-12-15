@@ -1,11 +1,11 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class DB_Communicator {
-    public DB_Communicator(){};
+public class DB_Quote_Reader implements QuoteReader {
+    public DB_Quote_Reader(){};
 
+    @Override
     public ArrayList<String> getCategories(){
         ArrayList<String> categories = new ArrayList<String>();
 
@@ -14,8 +14,14 @@ public class DB_Communicator {
         return categories;
     }
 
+    @Override
     public QuoteEntity getQuote(String category){
         // TODO make this method, now it is just a stub
         return new QuoteEntity("sample text", "sample author", category);
+    }
+
+    @Override
+    public String[][] getNLines(int amount) throws Exception {
+        return new String[0][];
     }
 }
