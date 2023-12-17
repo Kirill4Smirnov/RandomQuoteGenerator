@@ -1,7 +1,9 @@
 package model;
 
 
+import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
 
 import java.io.Reader;
 import java.nio.file.Files;
@@ -22,9 +24,13 @@ public class FileQuoteReader implements QuoteReader {
         return null;
     }
 
-    private List<String[]> readAllLines(Path filePath) throws Exception {
+    private List<String[]> readAllLines(Path filePath, char sep) throws Exception {
         try (Reader reader = Files.newBufferedReader(filePath)) {
-            try (CSVReader csvReader = new CSVReader(reader)) {
+            try (CSVReader csvReader = new CSVReaderBuilder(reader)
+                    .withCSVParser(new CSVParserBuilder()
+                            .withSeparator(sep)
+                            .build()
+                    ).build()) {
                 return csvReader.readAll();
             }
         }
@@ -32,8 +38,8 @@ public class FileQuoteReader implements QuoteReader {
 
     public String[][] getNLines(int amount) throws Exception {
         Path path = Paths.get(
-                ClassLoader.getSystemResource("/home/kenlog/Downloads/MotivationalQuotesDatabase.csv").toURI());
-        List<String[]> allLinesList =  readAllLines(path);
+                ClassLoader.getSystemResource("resources/MotivationalQuotesDatabase.csv").toURI());
+        List<String[]> allLinesList =  readAllLines(path, ';');
         String[][] resultList = new String[amount][3];
         for (int i = 0; i < amount; i++) {
             resultList[i] = allLinesList.get(i);

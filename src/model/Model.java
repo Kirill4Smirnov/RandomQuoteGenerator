@@ -11,7 +11,7 @@ public class Model {
     public List<List<String[]>> GetNQuotes(int amount){return null;}
 
     public void printQuotes(int amount){
-        String[][] quotesArr;
+            String[][] quotesArr;
 
         try {
             quotesArr = reader.getNLines(10);
@@ -19,10 +19,10 @@ public class Model {
             for (int i = 0; i < quotesArr.length; i++) {
 
                 System.out.print("[");
-                for (int j = 0; j < quotesArr[0].length; j++) {
+                for (int j = 0; j < quotesArr[i].length; j++) {
                     System.out.print(" " + quotesArr[i][j] + ", ");
                 }
-                System.out.print("], ");
+                System.out.print("], \n");
             }
 
         } catch (Exception e) {
