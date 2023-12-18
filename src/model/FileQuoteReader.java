@@ -12,8 +12,10 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileQuoteReader implements QuoteReader {
-
+public class FileQuoteReader extends QuoteReader {
+    public FileQuoteReader(String filePath){
+        super(filePath);
+    }
 
     public ArrayList<String> getCategories() {
         return null;
@@ -38,7 +40,7 @@ public class FileQuoteReader implements QuoteReader {
 
     public String[][] getNLines(int amount) throws Exception {
         Path path = Paths.get(
-                ClassLoader.getSystemResource("resources/MotivationalQuotesDatabase.csv").toURI());
+                ClassLoader.getSystemResource(filePath).toURI());
         List<String[]> allLinesList =  readAllLines(path, ';');
         String[][] resultList = new String[amount][3];
         for (int i = 0; i < amount; i++) {

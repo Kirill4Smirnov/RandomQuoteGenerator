@@ -5,7 +5,7 @@ import java.util.List;
 public class Model {
     private final QuoteReader reader;
     public Model() {
-        reader = new FileQuoteReader();
+        reader = new FileQuoteReader("resources/MotivationalQuotesDatabase.csv");
     }
 
     public List<List<String[]>> GetNQuotes(int amount){return null;}

@@ -2,8 +2,10 @@ package model;
 
 import java.util.ArrayList;
 
-public class DB_Quote_Reader implements QuoteReader {
-    public DB_Quote_Reader(){};
+public class DB_Quote_Reader extends QuoteReader {
+    public DB_Quote_Reader(String filePath){
+        super(filePath);
+    }
 
     @Override
     public ArrayList<String> getCategories(){

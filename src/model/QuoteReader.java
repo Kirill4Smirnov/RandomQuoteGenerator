@@ -2,10 +2,14 @@ package model;
 
 import java.util.ArrayList;
 
-public interface QuoteReader {
+public abstract class QuoteReader {
+    protected String filePath;
+    public QuoteReader(String filePath){
+        this.filePath = filePath;
+    }
 
-    public ArrayList<String> getCategories();
-    public QuoteEntity getQuote(String category);
+    public abstract ArrayList<String> getCategories();
+    public abstract QuoteEntity getQuote(String category);
 
-    public String[][] getNLines(int amount)throws Exception;
+    public abstract String[][] getNLines(int amount)throws Exception;
 }
