@@ -8,21 +8,14 @@ public class Model {
         reader = new FileQuoteReader("resources/MotivationalQuotesDatabase.csv");
     }
 
-    public List<List<String[]>> GetNQuotes(int amount){return null;}
-
     public void printQuotes(int amount){
-            String[][] quotesArr;
+            QuoteEntity[] quotesArr;
 
         try {
             quotesArr = reader.getNLines(10);
 
-            for (int i = 0; i < quotesArr.length; i++) {
-
-                System.out.print("[");
-                for (int j = 0; j < quotesArr[i].length; j++) {
-                    System.out.print(" " + quotesArr[i][j] + ", ");
-                }
-                System.out.print("], \n");
+            for (QuoteEntity quoteEntity : quotesArr) {
+                System.out.println(quoteEntity.getText() + "|" + quoteEntity.getAuthor() + "|" + quoteEntity.getCategory() + '\n');
             }
 
         } catch (Exception e) {

@@ -15,6 +15,8 @@ import java.util.List;
 public class FileQuoteReader extends QuoteReader {
     public FileQuoteReader(String filePath){
         super(filePath);
+
+
     }
 
     public ArrayList<String> getCategories() {
@@ -38,13 +40,16 @@ public class FileQuoteReader extends QuoteReader {
         }
     }
 
-    public String[][] getNLines(int amount) throws Exception {
+    public QuoteEntity[] getNLines(int amount) throws Exception {
         Path path = Paths.get(
                 ClassLoader.getSystemResource(filePath).toURI());
         List<String[]> allLinesList =  readAllLines(path, ';');
-        String[][] resultList = new String[amount][3];
+        QuoteEntity[] resultList = new QuoteEntity[amount];
+
+        String[] currentString = new String[3];
         for (int i = 0; i < amount; i++) {
-            resultList[i] = allLinesList.get(i);
+            currentString = allLinesList.get(i);
+            resultList[i] = new QuoteEntity(currentString[0], currentString[1], currentString[2]);
         }
 
         return resultList;

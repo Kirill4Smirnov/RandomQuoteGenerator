@@ -9,7 +9,8 @@ public abstract class QuoteReader {
     }
 
     public abstract ArrayList<String> getCategories();
+
     public abstract QuoteEntity getQuote(String category);
 
-    public abstract String[][] getNLines(int amount)throws Exception;
+    public abstract QuoteEntity[] getNLines(int amount)throws Exception;
 }

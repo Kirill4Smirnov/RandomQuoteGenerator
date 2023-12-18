@@ -23,7 +23,7 @@ public class DB_Quote_Reader extends QuoteReader {
     }
 
     @Override
-    public String[][] getNLines(int amount) throws Exception {
-        return new String[0][];
+    public QuoteEntity[] getNLines(int amount) throws Exception {
+        return new QuoteEntity[amount];
     }
 }
