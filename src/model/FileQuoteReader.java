@@ -13,26 +13,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileQuoteReader extends QuoteReader {
-    public FileQuoteReader(String filePath){
+    private QuoteEntity[] allQuotesList;
+
+    public FileQuoteReader(String filePath) throws Exception {
         super(filePath);
 
-
+        List<String[]> allQuotesString = readAllLines();
+        int size = allQuotesString.size();
+        allQuotesList = new QuoteEntity[size];
+        int idx = 0;
+        for (String[] strings : allQuotesString) {
+            allQuotesList[idx] = new QuoteEntity(strings[0], strings[1], strings[2]);
+            ++idx;
+        }
     }
 
     public ArrayList<String> getCategories() {
         return null;
     }
 
-
     public QuoteEntity getQuote(String category) {
         return null;
     }
 
-    private List<String[]> readAllLines(Path filePath, char sep) throws Exception {
-        try (Reader reader = Files.newBufferedReader(filePath)) {
+    private List<String[]> readAllLines() throws Exception {
+        Path path = Paths.get(
+                ClassLoader.getSystemResource(filePath).toURI());
+        try (Reader reader = Files.newBufferedReader(path)) {
             try (CSVReader csvReader = new CSVReaderBuilder(reader)
                     .withCSVParser(new CSVParserBuilder()
-                            .withSeparator(sep)
+                            .withSeparator(';')
                             .build()
                     ).build()) {
                 return csvReader.readAll();
@@ -41,17 +51,8 @@ public class FileQuoteReader extends QuoteReader {
     }
 
     public QuoteEntity[] getNLines(int amount) throws Exception {
-        Path path = Paths.get(
-                ClassLoader.getSystemResource(filePath).toURI());
-        List<String[]> allLinesList =  readAllLines(path, ';');
-        QuoteEntity[] resultList = new QuoteEntity[amount];
-
-        String[] currentString = new String[3];
-        for (int i = 0; i < amount; i++) {
-            currentString = allLinesList.get(i);
-            resultList[i] = new QuoteEntity(currentString[0], currentString[1], currentString[2]);
-        }
-
-        return resultList;
+        QuoteEntity[] resultArr = new QuoteEntity[amount];
+        System.arraycopy(allQuotesList, 0, resultArr, 0, amount);
+        return resultArr;
     }
 }

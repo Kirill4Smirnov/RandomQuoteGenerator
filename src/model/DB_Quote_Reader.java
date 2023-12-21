@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 
 public class DB_Quote_Reader extends QuoteReader {
-    public DB_Quote_Reader(String filePath){
+    public DB_Quote_Reader(String filePath) throws Exception {
         super(filePath);
     }
 

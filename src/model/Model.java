@@ -5,7 +5,11 @@ import java.util.List;
 public class Model {
     private final QuoteReader reader;
     public Model() {
-        reader = new FileQuoteReader("resources/MotivationalQuotesDatabase.csv");
+        try {
+            reader = new FileQuoteReader("resources/MotivationalQuotesDatabase.csv");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void printQuotes(int amount){
