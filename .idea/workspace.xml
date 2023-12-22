@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a5e4cef-8a3d-4f03-932b-ac777e7b6dbe" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="6a5e4cef-8a3d-4f03-932b-ac777e7b6dbe" name="Changes" comment="Reading in FileQuoteReader now takes significantly less time (O(n) instead of O(n^2))">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/xerial_sqlite_jdbc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Main.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/DB_Quote_Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/DB_Quote_Reader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RandomQuoteGenerator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandomQuoteGenerator.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/FileQuoteReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/FileQuoteReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/QuoteReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/QuoteReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,14 +66,14 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/kenlog/IdeaProjects/RandomQuoteGenerator/src&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/kenlog/IdeaProjects/RandomQuoteGenerator/src/slf4j-api-1.7.36.jar&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -103,7 +102,8 @@
       <workItem from="1702890641385" duration="2000" />
       <workItem from="1702892343609" duration="2353000" />
       <workItem from="1703085775930" duration="1799000" />
-      <workItem from="1703142647625" duration="5213000" />
+      <workItem from="1703142647625" duration="9906000" />
+      <workItem from="1703223108824" duration="649000" />
     </task>
     <task id="LOCAL-00001" summary="Basic MVC structure, started coding model">
       <option name="closed" value="true" />
@@ -145,7 +145,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702888373010</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Reading in FileQuoteReader now takes significantly less time (O(n) instead of O(n^2))">
+      <option name="closed" value="true" />
+      <created>1703156919072</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1703156919072</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,7 +176,8 @@
     <MESSAGE value="Csv reading works now" />
     <MESSAGE value="Changed QuoteReader from interface to abstract class" />
     <MESSAGE value="In FileQuoteReader changed String[][] to QuoteEntity[]" />
-    <option name="LAST_COMMIT_MESSAGE" value="In FileQuoteReader changed String[][] to QuoteEntity[]" />
+    <MESSAGE value="Reading in FileQuoteReader now takes significantly less time (O(n) instead of O(n^2))" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reading in FileQuoteReader now takes significantly less time (O(n) instead of O(n^2))" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

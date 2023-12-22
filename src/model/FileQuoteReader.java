@@ -12,8 +12,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class FileQuoteReader extends QuoteReader {
-    private QuoteEntity[] allQuotesList;
+    private final QuoteEntity[] allQuotesList;
 
     public FileQuoteReader(String filePath) throws Exception {
         super(filePath);
