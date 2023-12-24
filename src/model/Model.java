@@ -4,7 +4,8 @@ public class Model {
     private final QuoteReader reader;
     public Model() {
         try {
-            reader = new FileQuoteReader("resources/MotivationalQuotesDatabase3.csv");
+            reader = new DB_Quote_Reader("resources/quotes.db");
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
