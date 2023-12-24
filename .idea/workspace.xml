@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a5e4cef-8a3d-4f03-932b-ac777e7b6dbe" name="Changes" comment="Reading in FileQuoteReader now takes significantly less time (O(n) instead of O(n^2))">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/xerial_sqlite_jdbc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Main.xml" afterDir="false" />
+    <list default="true" id="6a5e4cef-8a3d-4f03-932b-ac777e7b6dbe" name="Changes" comment="Before rearranging model architecture to sqlite jdbc">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RandomQuoteGenerator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandomQuoteGenerator.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/DB_Quote_Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/DB_Quote_Reader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/FileQuoteReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/FileQuoteReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/QuoteEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/QuoteEntity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +104,9 @@
       <workItem from="1702892343609" duration="2353000" />
       <workItem from="1703085775930" duration="1799000" />
       <workItem from="1703142647625" duration="9906000" />
-      <workItem from="1703223108824" duration="649000" />
+      <workItem from="1703223108824" duration="2573000" />
+      <workItem from="1703353001380" duration="5353000" />
+      <workItem from="1703407750667" duration="6308000" />
     </task>
     <task id="LOCAL-00001" summary="Basic MVC structure, started coding model">
       <option name="closed" value="true" />
@@ -153,7 +156,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703156919072</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Before rearranging model architecture to sqlite jdbc">
+      <option name="closed" value="true" />
+      <created>1703225163402</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1703225163402</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,7 +188,8 @@
     <MESSAGE value="Changed QuoteReader from interface to abstract class" />
     <MESSAGE value="In FileQuoteReader changed String[][] to QuoteEntity[]" />
     <MESSAGE value="Reading in FileQuoteReader now takes significantly less time (O(n) instead of O(n^2))" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reading in FileQuoteReader now takes significantly less time (O(n) instead of O(n^2))" />
+    <MESSAGE value="Before rearranging model architecture to sqlite jdbc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Before rearranging model architecture to sqlite jdbc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

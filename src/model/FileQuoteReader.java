@@ -13,6 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
+@Deprecated
+// only reading all quotes works for now
 public class FileQuoteReader extends QuoteReader {
     private final QuoteEntity[] allQuotesList;
 
@@ -22,10 +25,13 @@ public class FileQuoteReader extends QuoteReader {
         List<String[]> allQuotesString = readAllLines();
         int size = allQuotesString.size();
         allQuotesList = new QuoteEntity[size];
+
         int idx = 0;
         for (String[] strings : allQuotesString) {
-            allQuotesList[idx] = new QuoteEntity(strings[0], strings[1], strings[2]);
-            ++idx;
+            if (strings.length == 3){
+                allQuotesList[idx] = new QuoteEntity(strings[0], strings[1], strings[2]);
+                ++idx;
+            }
         }
     }
 
@@ -43,7 +49,7 @@ public class FileQuoteReader extends QuoteReader {
         try (Reader reader = Files.newBufferedReader(path)) {
             try (CSVReader csvReader = new CSVReaderBuilder(reader)
                     .withCSVParser(new CSVParserBuilder()
-                            .withSeparator(';')
+                            .withSeparator('|')
                             .build()
                     ).build()) {
                 return csvReader.readAll();

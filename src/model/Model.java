@@ -1,12 +1,10 @@
 package model;
 
-import java.util.List;
-
 public class Model {
     private final QuoteReader reader;
     public Model() {
         try {
-            reader = new FileQuoteReader("resources/MotivationalQuotesDatabase.csv");
+            reader = new FileQuoteReader("resources/MotivationalQuotesDatabase3.csv");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -19,7 +17,7 @@ public class Model {
             quotesArr = reader.getNLines(10);
 
             for (QuoteEntity quoteEntity : quotesArr) {
-                System.out.println(quoteEntity.getText() + "|" + quoteEntity.getAuthor() + "|" + quoteEntity.getCategory() + '\n');
+                System.out.println(quoteEntity.text() + "|" + quoteEntity.author() + "|" + quoteEntity.category() + '\n');
             }
 
         } catch (Exception e) {
