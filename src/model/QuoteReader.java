@@ -8,9 +8,14 @@ public abstract class QuoteReader {
         this.filePath = filePath;
     }
 
-    public abstract ArrayList<String> getCategories();
+    public abstract ArrayList<String> getCategories() throws Exception;
 
-    public abstract QuoteEntity getQuote(String category);
 
-    public abstract QuoteEntity[] getNLines(int amount)throws Exception;
+    public abstract QuoteEntity[] getFirstLines(int amount)throws Exception;
+
+    public abstract QuoteEntity QuoteGetRandomQuotes(int num) throws Exception;
+
+    public abstract QuoteEntity QuoteGetRandomQuotes(String category, int num) throws Exception;
+
+    public abstract QuoteEntity QuoteGetRandomQuotes(String author, String category, int num) throws Exception;
 }

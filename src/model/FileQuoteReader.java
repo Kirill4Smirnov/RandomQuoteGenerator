@@ -57,9 +57,24 @@ public class FileQuoteReader extends QuoteReader {
         }
     }
 
-    public QuoteEntity[] getNLines(int amount) throws Exception {
+    public QuoteEntity[] getFirstLines(int amount) throws Exception {
         QuoteEntity[] resultArr = new QuoteEntity[amount];
         System.arraycopy(allQuotesList, 0, resultArr, 0, amount);
         return resultArr;
+    }
+
+    @Override
+    public QuoteEntity QuoteGetRandomQuotes(int num) {
+        return null;
+    }
+
+    @Override
+    public QuoteEntity QuoteGetRandomQuotes(String category, int num) {
+        return null;
+    }
+
+    @Override
+    public QuoteEntity QuoteGetRandomQuotes(String author, String category, int num) {
+        return null;
     }
 }

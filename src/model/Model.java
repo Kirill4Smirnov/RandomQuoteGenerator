@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Model {
     private final QuoteReader reader;
     public Model() {
@@ -11,19 +13,21 @@ public class Model {
         }
     }
 
-    public void printQuotes(int amount){
-            QuoteEntity[] quotesArr;
 
+    public QuoteEntity[] getFirstQuotes(int amount){
         try {
-            quotesArr = reader.getNLines(10);
+            return reader.getFirstLines(amount);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-            for (QuoteEntity quoteEntity : quotesArr) {
-                System.out.println(quoteEntity.text() + "|" + quoteEntity.author() + "|" + quoteEntity.category() + '\n');
-            }
-
+   public ArrayList<String> getCategories(){
+        try {
+            return reader.getCategories();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
-    }
+   }
 }

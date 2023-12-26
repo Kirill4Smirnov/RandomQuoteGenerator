@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.EmptyStackException;
 
 
 public class DB_Quote_Reader extends QuoteReader {
@@ -35,22 +36,30 @@ public class DB_Quote_Reader extends QuoteReader {
     }
 
     @Override
-    public ArrayList<String> getCategories(){
+    public ArrayList<String> getCategories() throws Exception{
         ArrayList<String> categories = new ArrayList<String>();
 
-        // get categories from the DB, do something with "categories"
+        Connection connection = DriverManager.getConnection(url);
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery( "SELECT DISTINCT category FROM " + tableName + " ;");
+
+        int idx = 0;
+        while (rs.next()){
+            categories.set(idx, rs.getString("category"));
+            idx++;
+        }
+
+
+        connection.close();
+        statement.close();
+        rs.close();
 
         return categories;
     }
 
-    @Override
-    public QuoteEntity getQuote(String category){
-        // TODO make this method, now it is just a stub
-        return new QuoteEntity("sample text", "sample author", category);
-    }
 
     @Override
-    public QuoteEntity[] getNLines(int amount) throws Exception {
+    public QuoteEntity[] getFirstLines(int amount) throws Exception {
         Connection connection = DriverManager.getConnection(url);
         Statement statement = connection.createStatement();
         ResultSet rs = statement.executeQuery( "SELECT * FROM " + tableName + " LIMIT " + Integer.toString(amount+1) + ';');
@@ -67,5 +76,20 @@ public class DB_Quote_Reader extends QuoteReader {
         statement.close();
         rs.close();
         return resArr;
+    }
+
+    @Override
+    public QuoteEntity QuoteGetRandomQuotes(int num) {
+        return null;
+    }
+
+    @Override
+    public QuoteEntity QuoteGetRandomQuotes(String category, int num) {
+        return null;
+    }
+
+    @Override
+    public QuoteEntity QuoteGetRandomQuotes(String author, String category, int num) {
+        return null;
     }
 }
