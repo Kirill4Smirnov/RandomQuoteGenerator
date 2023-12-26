@@ -30,4 +30,31 @@ public class Model {
         }
 
    }
+
+    public QuoteEntity[] getRandomQuotes(int amount){
+        try {
+            return reader.getRandomQuotes(amount);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public QuoteEntity[] getRandomQuotes(String category, int amount){
+        try {
+            return reader.getRandomQuotes(category, amount);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public QuoteEntity[] getRandomQuotes(String author, String category, int amount){
+        try {
+            return reader.getRandomQuotes(author, category, amount);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }

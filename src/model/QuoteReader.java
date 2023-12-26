@@ -13,9 +13,9 @@ public abstract class QuoteReader {
 
     public abstract QuoteEntity[] getFirstLines(int amount)throws Exception;
 
-    public abstract QuoteEntity QuoteGetRandomQuotes(int num) throws Exception;
+    public abstract QuoteEntity[] getRandomQuotes(int num) throws Exception;
 
-    public abstract QuoteEntity QuoteGetRandomQuotes(String category, int num) throws Exception;
+    public abstract QuoteEntity[] getRandomQuotes(String category, int num) throws Exception;
 
-    public abstract QuoteEntity QuoteGetRandomQuotes(String author, String category, int num) throws Exception;
+    public abstract QuoteEntity[] getRandomQuotes(String author, String category, int num) throws Exception;
 }

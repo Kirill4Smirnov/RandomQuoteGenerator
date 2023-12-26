@@ -1,6 +1,8 @@
 package view;
 
 import model.QuoteEntity;
+import java.util.ArrayList;
+
 
 public class ConsoleUI implements UI {
 
@@ -15,7 +17,11 @@ public class ConsoleUI implements UI {
     }
 
     @Override
-    public void showCategories() {
-
+    public void showCategories(ArrayList<String> categories) {
+        int idx = 0;
+        for (String category : categories) {
+            System.out.println(Integer.toString(idx) + ": " + category);
+            idx++;
+        }
     }
 }

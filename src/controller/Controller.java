@@ -13,7 +13,8 @@ public class Controller {
         ui = new ConsoleUI();
     }
     public void startProgram() {
-        ui.showQuotes(model.getFirstQuotes(5));
+        ui.showQuotes(model.getRandomQuotes("Unknown", "Love", 5));
+        ui.showCategories(model.getCategories());
     }
 
 }

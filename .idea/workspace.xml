@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a5e4cef-8a3d-4f03-932b-ac777e7b6dbe" name="Changes" comment="DB_Quote_Reader: getNLines implemented">
-      <change afterPath="$PROJECT_DIR$/src/view/ConsoleUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/UI.java" afterDir="false" />
+    <list default="true" id="6a5e4cef-8a3d-4f03-932b-ac777e7b6dbe" name="Changes" comment="added UI class, refactored Controller logic (now it delegates all work to an UI)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/DB_Quote_Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/DB_Quote_Reader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/FileQuoteReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/FileQuoteReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/QuoteReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/QuoteReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ConsoleUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ConsoleUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/UI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +109,7 @@
       <workItem from="1703353001380" duration="5353000" />
       <workItem from="1703407750667" duration="12957000" />
       <workItem from="1703486964593" duration="2404000" />
-      <workItem from="1703595251989" duration="5365000" />
+      <workItem from="1703595251989" duration="9900000" />
     </task>
     <task id="LOCAL-00001" summary="Basic MVC structure, started coding model">
       <option name="closed" value="true" />
@@ -183,7 +183,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703441767551</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added UI class, refactored Controller logic (now it delegates all work to an UI)">
+      <option name="closed" value="true" />
+      <created>1703608844566</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1703608844566</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,6 +218,7 @@
     <MESSAGE value="Before rearranging model architecture to sqlite jdbc" />
     <MESSAGE value="FileQuoteReader csv delimiter change from ';' to '|', poorly read csv rows now do not cause crash" />
     <MESSAGE value="DB_Quote_Reader: getNLines implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="DB_Quote_Reader: getNLines implemented" />
+    <MESSAGE value="added UI class, refactored Controller logic (now it delegates all work to an UI)" />
+    <option name="LAST_COMMIT_MESSAGE" value="added UI class, refactored Controller logic (now it delegates all work to an UI)" />
   </component>
 </project>

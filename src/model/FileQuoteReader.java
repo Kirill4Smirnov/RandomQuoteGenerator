@@ -64,17 +64,17 @@ public class FileQuoteReader extends QuoteReader {
     }
 
     @Override
-    public QuoteEntity QuoteGetRandomQuotes(int num) {
+    public QuoteEntity[] getRandomQuotes(int num) {
         return null;
     }
 
     @Override
-    public QuoteEntity QuoteGetRandomQuotes(String category, int num) {
+    public QuoteEntity[] getRandomQuotes(String category, int num) {
         return null;
     }
 
     @Override
-    public QuoteEntity QuoteGetRandomQuotes(String author, String category, int num) {
+    public QuoteEntity[] getRandomQuotes(String author, String category, int num) {
         return null;
     }
 }
