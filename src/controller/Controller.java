@@ -2,6 +2,7 @@ package controller;
 
 import model.Model;
 import view.ConsoleUI;
+import view.SwingUI;
 import view.UI;
 
 public class Controller {
@@ -10,7 +11,7 @@ public class Controller {
 
     public Controller(){
         model = new Model();
-        ui = new ConsoleUI();
+        ui = new SwingUI();
     }
     public void startProgram() {
         ui.showQuotes(model.getRandomQuotes("Unknown", "Love", 5));

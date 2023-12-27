@@ -8,4 +8,6 @@ public interface UI {
     void showQuotes(QuoteEntity[] quotes);
 
     void showCategories(ArrayList<String> categories);
+
+
 }
