@@ -1,6 +1,7 @@
 package view;
 
 import model.QuoteEntity;
+import model.RegenObserver;
 
 import java.util.ArrayList;
 
@@ -9,5 +10,5 @@ public interface UI {
 
     void showCategories(ArrayList<String> categories);
 
-
+    public void subscribeForRegenEvent(RegenObserver observer);
 }

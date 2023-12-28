@@ -1,44 +1,78 @@
 package view;
 
+import model.RegenObserver;
 import model.QuoteEntity;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
-public class SwingUI implements UI{
-    public SwingUI(){
-        JFrame frame = new JFrame("Random quote generator");
+public class SwingUI implements UI {
+ private    JFrame frame;
+
+    private JComboBox<String> categoryDropdown;
+    private JTextArea quoteTextArea;
+    private JButton regenerateButton;
+
+    private RegenObserver regenObserver;
+    String[] categories;
+
+    public void subscribeForRegenEvent(RegenObserver observer) {
+        regenObserver = observer;
+    }
+
+    public SwingUI(RegenObserver observer) {
+        regenObserver = observer;
+        categories = observer.getCategories().toArray(new String[0]);
+
+        frame = new JFrame("Random quote generator");
+
+        frame.setTitle("Motivational Quote App");
+        frame.setSize(400, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300,300);
 
+        JPanel panel = new JPanel();
 
-        //Creating the panel at bottom and adding components
-        JPanel panel = new JPanel(); // the panel is not visible in output
-        JLabel label = new JLabel("Enter Text");
-        JTextField tf = new JTextField(10); // accepts upto 10 characters
-        JButton send = new JButton("Send");
-        JButton reset = new JButton("Reset");
-        panel.add(label); // Components Added using Flow Layout
-        panel.add(tf);
-        panel.add(BorderLayout.WEST, send);
-        panel.add(BorderLayout.EAST, reset);
+        // Dropdown menu for category selection
+        categoryDropdown = new JComboBox<>(categories);
+        panel.add(categoryDropdown);
 
+        // Text area for displaying the quote
+        quoteTextArea = new JTextArea(10, 30);
+        quoteTextArea.setEditable(false);
+        quoteTextArea.setWrapStyleWord(true);
 
-        JTextField textField = new JTextField(10);
-        textField.setText("baobab");
-        textField.setEditable(false);
-        textField.setHorizontalAlignment(JTextField.CENTER);
+        panel.add(quoteTextArea);
 
-        //Adding Components to the frame.
-        frame.getContentPane().add(BorderLayout.SOUTH, panel);
-        frame.getContentPane().add(BorderLayout.CENTER, textField);
+        // Button for regenerating the quote
+        regenerateButton = new JButton("Regenerate Quote");
+        regenerateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Call backend method to fetch a new quote based on selected category and display it in the text area
+                String selectedCategory = (String) categoryDropdown.getSelectedItem();
+                QuoteEntity[] newQuotes = regenObserver.getRandomQuotes(selectedCategory, 1);
+                showQuotes(newQuotes);
+            }
+        });
+        panel.add(regenerateButton);
+
+        frame.add(panel);
         frame.setVisible(true);
     }
 
     @Override
     public void showQuotes(QuoteEntity[] quotes) {
-
+        String result = "";
+        for (QuoteEntity quote :
+                quotes) {
+            result += quote.text() + " | " + quote.author() + "  |  " + quote.category() + '\n';
+        }
+        quoteTextArea.setText(result);
+        //frame.setVisible(true);
     }
 
     @Override

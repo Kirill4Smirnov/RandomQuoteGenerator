@@ -1,6 +1,8 @@
 package view;
 
 import model.QuoteEntity;
+import model.RegenObserver;
+
 import java.util.ArrayList;
 
 
@@ -23,5 +25,10 @@ public class ConsoleUI implements UI {
             System.out.println(Integer.toString(idx) + ": " + category);
             idx++;
         }
+    }
+
+    @Override
+    public void subscribeForRegenEvent(RegenObserver observer) {
+
     }
 }
