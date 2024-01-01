@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a5e4cef-8a3d-4f03-932b-ac777e7b6dbe" name="Changes" comment="Primitive playing around Java Swing">
-      <change afterPath="$PROJECT_DIR$/src/model/RegenObserver.java" afterDir="false" />
+    <list default="true" id="6a5e4cef-8a3d-4f03-932b-ac777e7b6dbe" name="Changes" comment="Minimal GUI works now">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/ConsoleUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ConsoleUI.java" afterDir="false" />
@@ -110,7 +109,10 @@
       <workItem from="1703595251989" duration="9966000" />
       <workItem from="1703657263679" duration="3143000" />
       <workItem from="1703688740501" duration="5563000" />
-      <workItem from="1703777227723" duration="6331000" />
+      <workItem from="1703777227723" duration="7650000" />
+      <workItem from="1703838897052" duration="984000" />
+      <workItem from="1703919580803" duration="2021000" />
+      <workItem from="1704112500528" duration="3636000" />
     </task>
     <task id="LOCAL-00001" summary="Basic MVC structure, started coding model">
       <option name="closed" value="true" />
@@ -208,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703697639602</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Minimal GUI works now">
+      <option name="closed" value="true" />
+      <created>1703788752534</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1703788752534</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,6 +248,7 @@
     <MESSAGE value="added UI class, refactored Controller logic (now it delegates all work to an UI)" />
     <MESSAGE value="DB_Quote_Reader main functions implemented completely" />
     <MESSAGE value="Primitive playing around Java Swing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Primitive playing around Java Swing" />
+    <MESSAGE value="Minimal GUI works now" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minimal GUI works now" />
   </component>
 </project>

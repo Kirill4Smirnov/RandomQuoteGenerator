@@ -18,8 +18,7 @@ public class ConsoleUI implements UI {
 
     }
 
-    @Override
-    public void showCategories(ArrayList<String> categories) {
+    private void showCategories(ArrayList<String> categories) {
         int idx = 0;
         for (String category : categories) {
             System.out.println(Integer.toString(idx) + ": " + category);

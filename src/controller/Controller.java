@@ -15,7 +15,6 @@ public class Controller implements RegenObserver {
     public Controller(){
         model = new Model();
         ui = new SwingUI(this);
-        //ui.subscribeForRegenEvent(this);
     }
     public void startProgram() {
         //ui.showQuotes(model.getRandomQuotes(1));

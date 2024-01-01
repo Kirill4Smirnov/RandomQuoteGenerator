@@ -4,14 +4,19 @@ import model.RegenObserver;
 import model.QuoteEntity;
 
 import javax.swing.*;
+import javax.swing.plaf.synth.SynthRadioButtonMenuItemUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SwingUI implements UI {
- private    JFrame frame;
+    private static final String defaultText =
+            "Click 'Regenerate quote' to get a quote for your motivation. You can also select a category using the menu above";
+    private JFrame frame;
 
     private JComboBox<String> categoryDropdown;
     private JTextArea quoteTextArea;
@@ -28,27 +33,48 @@ public class SwingUI implements UI {
         regenObserver = observer;
         categories = observer.getCategories().toArray(new String[0]);
 
+        createAndSetupFrame();
+
+    }
+
+    private void createAndSetupFrame(){
         frame = new JFrame("Random quote generator");
 
         frame.setTitle("Motivational Quote App");
         frame.setSize(400, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JPanel panel = new JPanel();
 
         // Dropdown menu for category selection
         categoryDropdown = new JComboBox<>(categories);
-        panel.add(categoryDropdown);
+        DefaultListCellRenderer listRenderer = new DefaultListCellRenderer();
+        listRenderer.setHorizontalAlignment(DefaultListCellRenderer.CENTER); // center-aligned items
+        categoryDropdown.setRenderer(listRenderer);
 
+        frame.add(categoryDropdown, BorderLayout.NORTH);
+
+
+        createTextArea();
+        createRegenBtn();
+        createExitShortcut();
+
+        frame.setVisible(true);
+
+    }
+    private void createTextArea(){
         // Text area for displaying the quote
-        quoteTextArea = new JTextArea(10, 30);
+        quoteTextArea = new JTextArea(10, 20);
         quoteTextArea.setEditable(false);
+        quoteTextArea.setFont(new Font("Serif", Font.PLAIN, 16));
+        quoteTextArea.setLineWrap(true);
         quoteTextArea.setWrapStyleWord(true);
+        quoteTextArea.setText(defaultText);
 
-        panel.add(quoteTextArea);
-
+        frame.add(quoteTextArea, BorderLayout.CENTER);
+    }
+    private void createRegenBtn(){
         // Button for regenerating the quote
-        regenerateButton = new JButton("Regenerate Quote");
+        regenerateButton = new JButton("Generate quote");
         regenerateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -58,11 +84,22 @@ public class SwingUI implements UI {
                 showQuotes(newQuotes);
             }
         });
-        panel.add(regenerateButton);
-
-        frame.add(panel);
-        frame.setVisible(true);
+        frame.add(regenerateButton, BorderLayout.SOUTH);
     }
+
+    private void createExitShortcut(){
+        //exit on Ctrl+Q
+        JRootPane rootPane = frame.getRootPane();
+        KeyStroke stroke = KeyStroke.getKeyStroke(KeyEvent.VK_Q, InputEvent.CTRL_DOWN_MASK);
+        rootPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(stroke, "exit");
+        rootPane.getActionMap().put("exit", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+            }
+        });
+    }
+
 
     @Override
     public void showQuotes(QuoteEntity[] quotes) {
@@ -75,8 +112,4 @@ public class SwingUI implements UI {
         //frame.setVisible(true);
     }
 
-    @Override
-    public void showCategories(ArrayList<String> categories) {
-
-    }
 }
